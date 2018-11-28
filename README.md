@@ -25,12 +25,19 @@
 
 ##### Progress Tracker
 - ☑ WrapAPI element created [here](https://wrapapi.com/api/serioussamix/rocketleague/statistics/0.0.1)
-- ☐ Statistics completed
+- ☐ Statistics completed (est. 2-4 hours)
     - ☐ Statistics vertical prototype created
     - ☐ Statistics horizontal prototype created
-- ☐ Settings page completed
+- ☐ Search completed (est. 1-5 hours)
+    - ☐ User not found exception handled
+    - ☐ "Enter" searches
+- ☐ Settings page completed (est. 2 hours)
     - ☐ Default user takes effect
     - ☐ Default user persists after close
+- ☐ Mockups completed (est. 2 hours)
+    - ☑ "My statistics" mocked up
+    - ☑ "Search" mocked up
+    - ☐ "Settings" mocked up
 
 
 #### Tech
