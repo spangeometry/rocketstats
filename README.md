@@ -1,6 +1,6 @@
-# RocketStats
-## iOS statistics for
-![Rocket League](https://vignette.wikia.nocookie.net/logopedia/images/0/08/Rocket_League_%28Print%29.svg/revision/latest?cb=20171202171333=100x "Rocket League logo")
+![RocketStats](https://github.com/spangeometry/rocketstats/raw/master/logo.png)
+## iOS statistics for Rocket League
+
 ##### an in-progress SFSU student project
 
 ### Priority One Features (Must-haves)
