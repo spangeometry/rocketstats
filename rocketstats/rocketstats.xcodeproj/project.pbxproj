@@ -108,13 +108,13 @@
 		2238B62121B0EB9A006D7CF5 /* rocketstats */ = {
 			isa = PBXGroup;
 			children = (
-				2238B62621B0EB9A006D7CF5 /* Main.storyboard */,
-				2259893121B107B800C61750 /* GoogleService-Info.plist */,
+				2238B62921B0EBA0006D7CF5 /* Assets.xcassets */,
 				2238B62221B0EB9A006D7CF5 /* AppDelegate.swift */,
 				2238B62421B0EB9A006D7CF5 /* ViewController.swift */,
-				2238B62921B0EBA0006D7CF5 /* Assets.xcassets */,
+				2238B62621B0EB9A006D7CF5 /* Main.storyboard */,
 				2238B62B21B0EBA0006D7CF5 /* LaunchScreen.storyboard */,
 				2238B62E21B0EBA0006D7CF5 /* Info.plist */,
+				2259893121B107B800C61750 /* GoogleService-Info.plist */,
 			);
 			path = rocketstats;
 			sourceTree = "<group>";
