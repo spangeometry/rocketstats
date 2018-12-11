@@ -18,6 +18,7 @@
 		2259893221B107B800C61750 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2259893121B107B800C61750 /* GoogleService-Info.plist */; };
 		2259893321B107B800C61750 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2259893121B107B800C61750 /* GoogleService-Info.plist */; };
 		2259893421B107B800C61750 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2259893121B107B800C61750 /* GoogleService-Info.plist */; };
+		22B10F4321BFE27E00E5E4AB /* LookupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B10F4221BFE27E00E5E4AB /* LookupViewController.swift */; };
 		9E7AEBACF10FD0DA5653F65A /* Pods_rocketstats.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AF0B6A8E93EF916CDE3867A /* Pods_rocketstats.framework */; };
 /* End PBXBuildFile section */
 
@@ -55,6 +56,7 @@
 		2238B64221B0EBA0006D7CF5 /* rocketstatsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rocketstatsUITests.swift; sourceTree = "<group>"; };
 		2238B64421B0EBA0006D7CF5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2259893121B107B800C61750 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		22B10F4221BFE27E00E5E4AB /* LookupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LookupViewController.swift; sourceTree = "<group>"; };
 		58FFF70C74C7501C3DA2FB95 /* Pods-rocketstats.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rocketstats.release.xcconfig"; path = "Pods/Target Support Files/Pods-rocketstats/Pods-rocketstats.release.xcconfig"; sourceTree = "<group>"; };
 		91EA561F7AEE9FBF0FCB430D /* Pods-rocketstats.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rocketstats.debug.xcconfig"; path = "Pods/Target Support Files/Pods-rocketstats/Pods-rocketstats.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -113,6 +115,7 @@
 				2238B62921B0EBA0006D7CF5 /* Assets.xcassets */,
 				2238B62221B0EB9A006D7CF5 /* AppDelegate.swift */,
 				2238B62421B0EB9A006D7CF5 /* PersonalViewController.swift */,
+				22B10F4221BFE27E00E5E4AB /* LookupViewController.swift */,
 				2238B62621B0EB9A006D7CF5 /* Main.storyboard */,
 				2238B62B21B0EBA0006D7CF5 /* LaunchScreen.storyboard */,
 				2238B62E21B0EBA0006D7CF5 /* Info.plist */,
@@ -348,6 +351,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2238B62521B0EB9A006D7CF5 /* PersonalViewController.swift in Sources */,
+				22B10F4321BFE27E00E5E4AB /* LookupViewController.swift in Sources */,
 				2238B62321B0EB9A006D7CF5 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

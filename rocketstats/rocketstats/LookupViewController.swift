@@ -1,7 +1,7 @@
 //
-//  PersonalViewController.swift
+//  LookupViewController.swift
 //  rocketstats
-//  Handles the View Controller for a user's personal statistics
+//  Handles the View Controller for a looked-up user's statistics
 //
 //  Created by Sam on 11/29/18.
 //  Copyright © 2018 Sam. All rights reserved.
@@ -11,7 +11,7 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
-class PersonalViewController: UIViewController {
+class LookupViewController: UIViewController {
     
     var userPlatform: String = ""
     var userID: String = ""
@@ -19,12 +19,13 @@ class PersonalViewController: UIViewController {
     @IBOutlet weak var statSaves: UILabel!
     @IBOutlet weak var userIDLabel: UILabel!
     @IBOutlet weak var statAssists: UILabel!
+    @IBOutlet weak var lookupButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        fetchSettings()
-        self.userIDLabel.text = userID
-        loadPersonalJSON(platform: userPlatform, userID: userID)
+        //fetchSettings()
+        self.userIDLabel.text = "meevelad"
+        //loadPersonalJSON(platform: "ps", userID: "meevelad")
         // Do any additional setup after loading the view, typically from a nib.
         
         
@@ -34,6 +35,9 @@ class PersonalViewController: UIViewController {
         self.statSaves.text = setTo
         self.statShots.text = setTo
         self.statAssists.text = setTo
+    }
+    @IBAction func lookupButtonPressed(_ sender: Any) {
+        loadPersonalJSON(platform: "ps", userID: "meevelad")
     }
     
     func loadPersonalJSON(platform: String, userID: String) {
