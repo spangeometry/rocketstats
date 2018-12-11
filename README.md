@@ -1,4 +1,4 @@
-![RocketStats](https://github.com/spangeometry/rocketstats/raw/master/logo.png)
+![RocketStats](https://github.com/spangeometry/rocketstats/raw/master/rocketstats/res/logo.png)
 ## iOS statistics for Rocket League
 
 ##### an in-progress SFSU student project
@@ -25,15 +25,15 @@
 
 ##### Progress Tracker
 - ☑ WrapAPI element created [here](https://wrapapi.com/api/serioussamix/rocketleague/statistics/0.0.1)
-- ☐ Statistics completed (est. 1-2 hours)
-    - ☐ Statistics vertical prototype created
-    - ☐ Statistics horizontal prototype created
+- ☑ Statistics completed (est. 1-2 hours)
+    - ☑ Statistics vertical prototype created
+    - ☑ Statistics horizontal prototype created
 - ☐ Lookup completed (est. 1-2 hours)
     - ☐ User not found exception handled
     - ☐ "Enter" searches
-- ☐ Settings page completed (est. 1-2 hours)
-    - ☐ Default user takes effect
-    - ☐ Default user persists after close
+- ☑ Settings page completed (est. 1-2 hours)
+    - ☑ Default user takes effect
+    - ☑ Default user persists after close
 - ☐ Mockups completed (est. 1-2 hours)
     - ☑ "My statistics" mocked up
     - ☑ "Search" mocked up
