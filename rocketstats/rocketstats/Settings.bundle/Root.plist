@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>StringsTable</key>
+	<string>Root</string>
+	<key>PreferenceSpecifiers</key>
+	<array>
+		<dict>
+			<key>Type</key>
+			<string>PSTextFieldSpecifier</string>
+			<key>Title</key>
+			<string>Username</string>
+			<key>Key</key>
+			<string>settingsUsername</string>
+			<key>DefaultValue</key>
+			<string> </string>
+			<key>IsSecure</key>
+			<false/>
+			<key>AutocapitalizationType</key>
+			<string>None</string>
+			<key>AutocorrectionType</key>
+			<string>No</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSMultiValueSpecifier</string>
+			<key>Titles</key>
+			<array>
+				<string>Playstation Network</string>
+				<string>Steam</string>
+				<string>Xbox Live</string>
+			</array>
+			<key>Title</key>
+			<string>Platform</string>
+			<key>Key</key>
+			<string>settingsPlatform</string>
+			<key>DefaultValue</key>
+			<string> </string>
+			<key>Values</key>
+			<array>
+				<string>ps</string>
+				<string>steam</string>
+				<string>xbox</string>
+			</array>
+		</dict>
+	</array>
+</dict>
+</plist>

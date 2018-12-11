@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2213ECB121BF843000F58002 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2213ECB021BF843000F58002 /* Settings.bundle */; };
 		2238B62321B0EB9A006D7CF5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2238B62221B0EB9A006D7CF5 /* AppDelegate.swift */; };
 		2238B62521B0EB9A006D7CF5 /* PersonalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2238B62421B0EB9A006D7CF5 /* PersonalViewController.swift */; };
 		2238B62821B0EB9A006D7CF5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2238B62621B0EB9A006D7CF5 /* Main.storyboard */; };
@@ -39,6 +40,7 @@
 
 /* Begin PBXFileReference section */
 		0AF0B6A8E93EF916CDE3867A /* Pods_rocketstats.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_rocketstats.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2213ECB021BF843000F58002 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		2238B61F21B0EB9A006D7CF5 /* rocketstats.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = rocketstats.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2238B62221B0EB9A006D7CF5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2238B62421B0EB9A006D7CF5 /* PersonalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalViewController.swift; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 				2238B62B21B0EBA0006D7CF5 /* LaunchScreen.storyboard */,
 				2238B62E21B0EBA0006D7CF5 /* Info.plist */,
 				2259893121B107B800C61750 /* GoogleService-Info.plist */,
+				2213ECB021BF843000F58002 /* Settings.bundle */,
 			);
 			path = rocketstats;
 			sourceTree = "<group>";
@@ -262,6 +265,7 @@
 			files = (
 				2238B62D21B0EBA0006D7CF5 /* LaunchScreen.storyboard in Resources */,
 				2259893221B107B800C61750 /* GoogleService-Info.plist in Resources */,
+				2213ECB121BF843000F58002 /* Settings.bundle in Resources */,
 				2238B62A21B0EBA0006D7CF5 /* Assets.xcassets in Resources */,
 				2238B62821B0EB9A006D7CF5 /* Main.storyboard in Resources */,
 			);
