@@ -18,35 +18,60 @@ class PersonalViewController: UIViewController {
     @IBOutlet weak var statShots: UILabel!
     @IBOutlet weak var statSaves: UILabel!
     @IBOutlet weak var userIDLabel: UILabel!
+    @IBOutlet weak var statAssists: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchSettings()
+        self.userIDLabel.text = userID
         loadPersonalJSON(platform: userPlatform, userID: userID)
         // Do any additional setup after loading the view, typically from a nib.
         
         
     }
     
+    func setAllStatFields(setTo: String) {
+        self.statSaves.text = setTo
+        self.statShots.text = setTo
+        self.statAssists.text = setTo
+    }
+    
     func loadPersonalJSON(platform: String, userID: String) {
+        if (userID == "") {
+            print("Settings: username was not set.")
+            self.userIDLabel.numberOfLines = 0
+            self.userIDLabel.font = self.userIDLabel.font.withSize(14)
+            self.userIDLabel.text = "Set your username & platform in\nthe Settings app."
+            self.setAllStatFields(setTo: "N/A")
+            return
+        }
+        
         Alamofire.request(generatePersonalURL(platform: userPlatform, userID: userID)).responseJSON {
             (responseData) -> Void in
             if((responseData.result.value) != nil) {
-                let swiftyJSONVar = JSON(responseData.result.value!)
-                print(swiftyJSONVar)
-                if swiftyJSONVar["success"].description == "false" {
-                    print("no success")
-                    self.userIDLabel.text = "no success"
+                let dataFromJSON = JSON(responseData.result.value!)
+                //print(swiftyJSONVar)
+                if dataFromJSON["success"].description == "false" {
+                    print("JSON: Retrieving JSON data failed.")
+                    self.userIDLabel.numberOfLines = 0
+                    self.userIDLabel.font = self.userIDLabel.font.withSize(14)
+                    self.userIDLabel.text = "Failed to retrieve statistics.\nCheck your username & platform\nin the Settings app."
+                    self.setAllStatFields(setTo: "N/A")
                     return
+                } else {
+                    print("JSON: Retrieving JSON data succeeded.")
                 }
-                if let testValue = swiftyJSONVar["data"]["performance"][5]["statistic"]["value"].string {
-                    self.statShots.text = testValue
-                    print(testValue)
-                    self.userIDLabel.text = "success"
+                //Get shots
+                if let statValue = dataFromJSON["data"]["performance"][5]["statistic"]["value"].string {
+                    self.statShots.text = statValue
                 }
-                if let testValue = swiftyJSONVar["data"]["performance"][4]["statistic"]["value"].string {
-                    self.statSaves.text = testValue
-                    print(testValue)
+                //Get saves
+                if let statValue = dataFromJSON["data"]["performance"][4]["statistic"]["value"].string {
+                    self.statSaves.text = statValue
+                }
+                //Get assists
+                if let statValue = dataFromJSON["data"]["performance"][7]["statistic"]["value"].string {
+                    self.statAssists.text = statValue
                 }
             }
         }
@@ -54,12 +79,11 @@ class PersonalViewController: UIViewController {
     
     func fetchSettings() {
         let defaults = UserDefaults.standard
-        let appDefaults = ["settingsUsername": "serioussamix","settingsPlatform": "ps"]
+        let appDefaults = ["settingsUsername": "","settingsPlatform": ""]
         defaults.register(defaults: appDefaults)
         defaults.synchronize()
         
         userID = defaults.string(forKey: "settingsUsername")!
-        self.userIDLabel.text = userID
         userPlatform = defaults.string(forKey: "settingsPlatform")!
     }
     
