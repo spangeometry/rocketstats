@@ -20,10 +20,11 @@ class LookupViewController: UIViewController {
     @IBOutlet weak var userIDLabel: UILabel!
     @IBOutlet weak var statAssists: UILabel!
     @IBOutlet weak var lookupButton: UIButton!
+    @IBOutlet weak var lookupField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //fetchSettings()
+        fetchSettings()
         self.userIDLabel.text = "meevelad"
         //loadPersonalJSON(platform: "ps", userID: "meevelad")
         // Do any additional setup after loading the view, typically from a nib.
@@ -36,8 +37,10 @@ class LookupViewController: UIViewController {
         self.statShots.text = setTo
         self.statAssists.text = setTo
     }
+    
     @IBAction func lookupButtonPressed(_ sender: Any) {
-        loadPersonalJSON(platform: "ps", userID: "meevelad")
+        let lookupID = lookupField.text!
+        loadPersonalJSON(platform: userPlatform, userID: lookupID)
     }
     
     func loadPersonalJSON(platform: String, userID: String) {
