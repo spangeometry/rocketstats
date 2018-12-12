@@ -43,10 +43,10 @@ class PersonalViewController: UIViewController {
     
     func loadPersonalJSON(platform: String, userID: String) {
         if (userID == "") {
-            print("Settings: username was not set.")
+            print("(Personal) Settings: username was not set.")
             self.userIDLabel.numberOfLines = 0
             self.userIDLabel.font = self.userIDLabel.font.withSize(14)
-            self.userIDLabel.text = "Set your username & platform in\nthe Settings app."
+            self.userIDLabel.text = "Set your username & platform in\nthe Settings app, then restart this app."
             self.setAllStatFields(setTo: "N/A")
             return
         }
@@ -57,14 +57,14 @@ class PersonalViewController: UIViewController {
                 let dataFromJSON = JSON(responseData.result.value!)
                 //print(swiftyJSONVar)
                 if dataFromJSON["success"].description == "false" {
-                    print("JSON: Retrieving JSON data failed.")
+                    print("(Personal) JSON: Retrieving JSON data failed.")
                     self.userIDLabel.numberOfLines = 0
                     self.userIDLabel.font = self.userIDLabel.font.withSize(14)
-                    self.userIDLabel.text = "Failed to retrieve statistics.\nCheck your username & platform\nin the Settings app."
+                    self.userIDLabel.text = "Failed to retrieve statistics.\nCheck your username & platform\nin the Settings app, then restart this app."
                     self.setAllStatFields(setTo: "N/A")
                     return
                 } else {
-                    print("JSON: Retrieving JSON data succeeded.")
+                    print("(Personal) JSON: Retrieving JSON data succeeded.")
                 }
                 //Get shots
                 if let statValue = dataFromJSON["data"]["performance"][5]["statistic"]["value"].string {

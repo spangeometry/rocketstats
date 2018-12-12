@@ -11,7 +11,7 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
-class LookupViewController: UIViewController, UITextFieldDelegate {
+class CompareViewController: UIViewController, UITextFieldDelegate {
     
     var userPlatform: String = ""
     var userID: String = ""
