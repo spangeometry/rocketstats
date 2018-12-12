@@ -22,10 +22,10 @@ class RankViewController: UIViewController {
     
     override func viewDidLoad() {
         
-        //fetchSettings()
+        fetchSettings()
         rankingsTableView.dataSource = self
         super.viewDidLoad()
-        loadPersonalJSON(platform: "ps", userID: "serioussamix")
+        loadPersonalJSON(platform: userPlatform, userID: userID)
         self.rankingsTableView.reloadData()
     }
     
