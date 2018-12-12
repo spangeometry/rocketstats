@@ -5,7 +5,7 @@
 
 ### Priority One Features (Must-haves)
 - Users shall be able to check their in-game statistics:
-    - Wins
+    - ~~Wins~~ (Not actually that interesting...)
     - Goals and Goal/shot percentage
     - Assists
     - Saves
