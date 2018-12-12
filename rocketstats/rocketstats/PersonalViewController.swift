@@ -15,10 +15,15 @@ class PersonalViewController: UIViewController {
     
     var userPlatform: String = ""
     var userID: String = ""
+    
+    @IBOutlet weak var userIDLabel: UILabel!
+    
     @IBOutlet weak var statShots: UILabel!
     @IBOutlet weak var statSaves: UILabel!
-    @IBOutlet weak var userIDLabel: UILabel!
     @IBOutlet weak var statAssists: UILabel!
+    @IBOutlet weak var statRatio: UILabel!
+    @IBOutlet weak var statGoals: UILabel!
+    @IBOutlet weak var statMVPs: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -72,6 +77,21 @@ class PersonalViewController: UIViewController {
                 //Get assists
                 if let statValue = dataFromJSON["data"]["performance"][7]["statistic"]["value"].string {
                     self.statAssists.text = statValue
+                }
+                //Get ratio
+                if let statValue = dataFromJSON["data"]["performance"][1]["statistic"]["value"].string {
+                    self.statRatio.text = statValue
+                }
+                //Get goals
+                if let statValue = dataFromJSON["data"]["performance"][3]["statistic"]["value"].string {
+                    self.statGoals.text = statValue
+                }
+                //Get MVPs
+                if let statValue = dataFromJSON["data"]["performance"][6]["statistic"]["value"].string {
+                    self.statMVPs.text = statValue
+                }
+                if let statValue = dataFromJSON["data"]["performance"][2]["statistic"]["value"].string {
+                    self.userIDLabel.text = (self.userIDLabel.text! + "\n" + statValue + " wins")
                 }
             }
         }
