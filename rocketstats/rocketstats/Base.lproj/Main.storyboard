@@ -164,19 +164,26 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="BmR-bG-IC2">
+                                <rect key="frame" x="177" y="323" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="B7W-Tt-4Zm" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="63" id="2NH-vE-WU8"/>
                             <constraint firstItem="B7W-Tt-4Zm" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Mf3-HT-Y9S"/>
+                            <constraint firstItem="BmR-bG-IC2" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Q3Z-V9-BRw"/>
+                            <constraint firstItem="BmR-bG-IC2" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="iqJ-kk-u3e"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="B7W-Tt-4Zm" secondAttribute="trailing" constant="62" id="j9y-aO-XPr"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Personal" image="personal" id="HEt-yg-8vn"/>
                     <connections>
+                        <outlet property="loadingIndicator" destination="BmR-bG-IC2" id="Vud-lx-sWm"/>
                         <outlet property="statAssists" destination="11H-ee-haX" id="PYg-PW-fd2"/>
                         <outlet property="statGoals" destination="ygz-FN-knX" id="m9F-RV-K4k"/>
+                        <outlet property="statImages" destination="iSr-0D-M6C" id="iXB-hu-5Pg"/>
                         <outlet property="statMVPs" destination="0zn-JT-3nz" id="W0c-X3-54g"/>
                         <outlet property="statRatio" destination="Eir-D7-B4e" id="N2d-sA-WmZ"/>
                         <outlet property="statSaves" destination="OsZ-AR-Z9m" id="rz4-Nk-beN"/>
@@ -331,21 +338,37 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="FTw-mo-z5d" userLabel="rankingsLoadIndicator">
+                                <rect key="frame" x="0.0" y="323" width="375" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="0bz-BW-Igk" firstAttribute="top" secondItem="RpA-Fy-0N7" secondAttribute="top" id="9yM-Qg-v8i"/>
+                            <constraint firstItem="FTw-mo-z5d" firstAttribute="centerY" secondItem="RpA-Fy-0N7" secondAttribute="centerY" constant="14" id="Tw8-j6-PEY"/>
+                            <constraint firstItem="FTw-mo-z5d" firstAttribute="centerX" secondItem="RpA-Fy-0N7" secondAttribute="centerX" id="VBW-ku-J9R"/>
                             <constraint firstItem="0bz-BW-Igk" firstAttribute="leading" secondItem="RpA-Fy-0N7" secondAttribute="leading" constant="63" id="n1r-9b-HgD"/>
                             <constraint firstItem="RpA-Fy-0N7" firstAttribute="trailing" secondItem="0bz-BW-Igk" secondAttribute="trailing" constant="62" id="njF-sK-bVs"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="RpA-Fy-0N7"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="pUA-Dr-Ann" appends="YES" id="xhT-MF-IDZ"/>
+                        </connections>
                     </view>
                     <tabBarItem key="tabBarItem" title="Rank" image="rank" id="Yv3-vo-S18"/>
                     <connections>
+                        <outlet property="rankingsLoadIndicator" destination="FTw-mo-z5d" id="hLd-46-Swa"/>
+                        <outlet property="rankingsSwipe" destination="pUA-Dr-Ann" id="GbI-Do-qsc"/>
                         <outlet property="rankingsTableView" destination="KdE-ue-PUU" id="ebP-BU-xgP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DWS-kZ-WFq" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="down" id="pUA-Dr-Ann">
+                    <connections>
+                        <action selector="rankRefresh:" destination="tXA-dI-c4P" id="29Q-Ct-IJR"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="272.80000000000001" y="-695.80209895052474"/>
         </scene>

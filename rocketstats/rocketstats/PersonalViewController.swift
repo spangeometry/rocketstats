@@ -15,9 +15,13 @@ class PersonalViewController: UIViewController {
     
     var userPlatform: String = ""
     var userID: String = ""
+    let rocketService = RocketService()
+    
+    
     
     @IBOutlet weak var userIDLabel: UILabel!
-    
+    @IBOutlet weak var statImages: UIImageView!
+    @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     @IBOutlet weak var statShots: UILabel!
     @IBOutlet weak var statSaves: UILabel!
     @IBOutlet weak var statAssists: UILabel!
@@ -26,12 +30,15 @@ class PersonalViewController: UIViewController {
     @IBOutlet weak var statMVPs: UILabel!
     
     override func viewDidLoad() {
+        userID = rocketService.fetchSettingsID()
+        userPlatform = rocketService.fetchSettingsPlatform()
         super.viewDidLoad()
         fetchSettings()
+        statImages.isHidden = true
         self.userIDLabel.text = userID
         loadPersonalJSON(platform: userPlatform, userID: userID)
         // Do any additional setup after loading the view, typically from a nib.
-        
+        statImages.isHidden = false
         
     }
     
