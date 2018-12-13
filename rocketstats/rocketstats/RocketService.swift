@@ -12,28 +12,51 @@ import SwiftyJSON
 
 class RocketService {
     
-    func loadRankingsJSON(platform: String, id: String) -> [[String:AnyObject]] {
+    func loadRankingsJSON(platform: String, id: String, completion: @escaping (_ success: Any) -> Void) -> [[String:AnyObject]] {
         var rankingsDictionary = [[String:AnyObject]]()
         
-        Alamofire.request(generatePersonalURL(platform: platform, id: id)).responseJSON {
+        let task = Alamofire.request(generatePersonalURL(platform: platform, id: id)).responseJSON {
             (responseData) -> Void in
             if((responseData.result.value) != nil) {
                 let dataFromJSON = JSON(responseData.result.value!)
-                print(dataFromJSON)
                 if dataFromJSON["success"].description == "false" {
                     print("(RocketService) JSON: Retrieving JSON data failed.")
                     return
                 } else {
                     print("(RocketService) JSON: Retrieving JSON data succeeded.")
                 }
-                
                 if let resData = dataFromJSON["data"]["rankings"].arrayObject {
                     rankingsDictionary = resData as! [[String:AnyObject]]
                 }
-
-                print(rankingsDictionary)
             }
         }
+        task.resume()
+        return rankingsDictionary
+    }
+    
+    func getUserInfo(platform: String, id: String, enterDoStuff: @escaping (Bool) -> Void) -> [[String:AnyObject]] {
+        
+        var rankingsDictionary = [[String:AnyObject]]()
+        
+        Alamofire.request(generatePersonalURL(platform: platform, id: id)).responseJSON { response in
+                if (response.result.isSuccess) {
+                    print("In Function Data: \(response.result.value!)")
+                    let dataFromJSON = JSON(response.result.value!)
+                    if dataFromJSON["success"].description == "false" {
+                        print("(RocketService) JSON: Retrieving JSON data failed.")
+                        return
+                    } else {
+                        print("(RocketService) JSON: Retrieving JSON data succeeded.")
+                    }
+                    if let resData = dataFromJSON["data"]["rankings"].arrayObject {
+                        enterDoStuff(true)
+                        rankingsDictionary = resData as! [[String:AnyObject]]
+                        print(rankingsDictionary)
+                    }
+                    
+                }
+        }.resume()
+        
         return rankingsDictionary
     }
 

@@ -20,13 +20,38 @@ class RankViewController: UIViewController {
     var rankingsArray = [String] ()
     var rankingsDictionary = [[String:AnyObject]]()
     
+    let rocketService = RocketService()
+    
     override func viewDidLoad() {
         
         fetchSettings()
         rankingsTableView.dataSource = self
         super.viewDidLoad()
-        loadPersonalJSON(platform: userPlatform, userID: userID)
-        self.rankingsTableView.reloadData()
+        //loadPersonalJSON(platform: userPlatform, userID: userID)
+        /*
+        rankingsDictionary = rocketService.loadRankingsJSON(platform: userPlatform, id: userID) { response in
+            print("test")
+        }
+
+        rankingsDictionary = rocketService.getUserInfo(platform: userPlatform, id: userID) { response in
+            print("test")
+            self.rankingsTableView.reloadData()
+        }
+        */
+        /*
+         Alamofire.request(generatePersonalURL(platform: userPlatform, userID: userID)).responseJSON { response in
+            
+            self.rankingsTableView.reloadData()
+        }*/
+        let personalurlstring = generatePersonalURL(platform: userPlatform, userID: userID)
+        print(personalurlstring)
+        let url = URL(string: personalurlstring)
+        Alamofire.request(url!).responseJSON { response in
+            self.rankingsDictionary = JSON(response.result.value!)["data"]["rankings"].arrayObject as! [[String : AnyObject]]
+            self.rankingsTableView.reloadData()
+        }
+        
+        
     }
     
     func loadPersonalJSON(platform: String, userID: String) {

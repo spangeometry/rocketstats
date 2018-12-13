@@ -120,8 +120,8 @@
 			children = (
 				2238B62921B0EBA0006D7CF5 /* Assets.xcassets */,
 				2238B62221B0EB9A006D7CF5 /* AppDelegate.swift */,
-				22B10F4E21C1200D00E5E4AB /* RocketService.swift */,
 				2238B62421B0EB9A006D7CF5 /* PersonalViewController.swift */,
+				22B10F4E21C1200D00E5E4AB /* RocketService.swift */,
 				22B10F4C21C0BEDE00E5E4AB /* RankViewController.swift */,
 				22B10F4221BFE27E00E5E4AB /* LookupViewController.swift */,
 				22B10F4A21C0BDF500E5E4AB /* CompareViewController.swift */,
