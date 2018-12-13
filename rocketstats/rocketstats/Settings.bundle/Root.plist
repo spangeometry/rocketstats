@@ -24,6 +24,38 @@
 		</dict>
 		<dict>
 			<key>Type</key>
+			<string>PSTextFieldSpecifier</string>
+			<key>Title</key>
+			<string>Duo Teammate</string>
+			<key>Key</key>
+			<string>settingsTeammateA</string>
+			<key>DefaultValue</key>
+			<string> </string>
+			<key>IsSecure</key>
+			<false/>
+			<key>AutocapitalizationType</key>
+			<string>None</string>
+			<key>AutocorrectionType</key>
+			<string>No</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSTextFieldSpecifier</string>
+			<key>Title</key>
+			<string>Standard Teammate</string>
+			<key>Key</key>
+			<string>settingsTeammateB</string>
+			<key>DefaultValue</key>
+			<string> </string>
+			<key>IsSecure</key>
+			<false/>
+			<key>AutocapitalizationType</key>
+			<string>None</string>
+			<key>AutocorrectionType</key>
+			<string>No</string>
+		</dict>
+		<dict>
+			<key>Type</key>
 			<string>PSMultiValueSpecifier</string>
 			<key>Titles</key>
 			<array>

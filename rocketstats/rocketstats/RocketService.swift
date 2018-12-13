@@ -12,52 +12,14 @@ import SwiftyJSON
 
 class RocketService {
     
-    func loadRankingsJSON(platform: String, id: String, completion: @escaping (_ success: Any) -> Void) -> [[String:AnyObject]] {
-        var rankingsDictionary = [[String:AnyObject]]()
-        
-        let task = Alamofire.request(generatePersonalURL(platform: platform, id: id)).responseJSON {
-            (responseData) -> Void in
-            if((responseData.result.value) != nil) {
-                let dataFromJSON = JSON(responseData.result.value!)
-                if dataFromJSON["success"].description == "false" {
-                    print("(RocketService) JSON: Retrieving JSON data failed.")
-                    return
-                } else {
-                    print("(RocketService) JSON: Retrieving JSON data succeeded.")
-                }
-                if let resData = dataFromJSON["data"]["rankings"].arrayObject {
-                    rankingsDictionary = resData as! [[String:AnyObject]]
-                }
-            }
-        }
-        task.resume()
-        return rankingsDictionary
+    func startLoadingAnimation(loadingIcon: UIActivityIndicatorView) {
+        loadingIcon.isHidden = false
+        loadingIcon.startAnimating()
     }
     
-    func getUserInfo(platform: String, id: String, enterDoStuff: @escaping (Bool) -> Void) -> [[String:AnyObject]] {
-        
-        var rankingsDictionary = [[String:AnyObject]]()
-        
-        Alamofire.request(generatePersonalURL(platform: platform, id: id)).responseJSON { response in
-                if (response.result.isSuccess) {
-                    print("In Function Data: \(response.result.value!)")
-                    let dataFromJSON = JSON(response.result.value!)
-                    if dataFromJSON["success"].description == "false" {
-                        print("(RocketService) JSON: Retrieving JSON data failed.")
-                        return
-                    } else {
-                        print("(RocketService) JSON: Retrieving JSON data succeeded.")
-                    }
-                    if let resData = dataFromJSON["data"]["rankings"].arrayObject {
-                        enterDoStuff(true)
-                        rankingsDictionary = resData as! [[String:AnyObject]]
-                        print(rankingsDictionary)
-                    }
-                    
-                }
-        }.resume()
-        
-        return rankingsDictionary
+    func stopLoadingAnimation(loadingIcon: UIActivityIndicatorView) {
+        loadingIcon.isHidden = true
+        loadingIcon.stopAnimating()
     }
 
     func fetchSettingsID() -> String{
@@ -67,6 +29,24 @@ class RocketService {
         defaults.synchronize()
         
         return defaults.string(forKey: "settingsUsername")!
+    }
+    
+    func fetchTeammateA() -> String{
+        let defaults = UserDefaults.standard
+        let appDefaults = ["settingsTeammateA": ""]
+        defaults.register(defaults: appDefaults)
+        defaults.synchronize()
+        
+        return defaults.string(forKey: "settingsTeammateA")!
+    }
+    
+    func fetchTeammateB() -> String{
+        let defaults = UserDefaults.standard
+        let appDefaults = ["settingsTeammateB": ""]
+        defaults.register(defaults: appDefaults)
+        defaults.synchronize()
+        
+        return defaults.string(forKey: "settingsTeammateB")!
     }
     
     func fetchSettingsPlatform() -> String{
@@ -88,6 +68,19 @@ class RocketService {
         return personalJSON;
     }
 
-    
+    func generateStatisticsDictionary(platform: String, id: String) -> [[String:AnyObject]] {
+        var rankingsDict = [[String : AnyObject]]()
+        Alamofire.request(generatePersonalURL(platform: platform, id: id)).responseJSON { response in
+            if (response.result.value != nil) {
+                guard
+                    let newRankingsDictionary = JSON(response.result.value!)["data"]["statistics"].arrayObject as? [[String : AnyObject]]
+                    else {
+                        print("(RankViewController): rankingsDictionary was empty")
+                        return
+                    }
+                rankingsDict = newRankingsDictionary
+            }
+        }
+        return rankingsDict
+    }
 }
-

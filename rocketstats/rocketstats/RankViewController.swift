@@ -16,6 +16,7 @@ class RankViewController: UIViewController {
     @IBOutlet weak var rankingsLoadIndicator: UIActivityIndicatorView!
     @IBOutlet var rankingsSwipe: UISwipeGestureRecognizer!
     @IBOutlet weak var rankingsTableView: UITableView!
+    @IBOutlet weak var usernameLabel: UILabel!
     var userPlatform: String = ""
     var userID: String = ""
     var rankingsDictionary = [[String:AnyObject]]()
@@ -26,6 +27,7 @@ class RankViewController: UIViewController {
     override func viewDidLoad() {
         userID = rocketService.fetchSettingsID()
         userPlatform = rocketService.fetchSettingsPlatform()
+        usernameLabel.text = userID
         rankingsTableView.dataSource = self
         
         super.viewDidLoad()
@@ -33,19 +35,25 @@ class RankViewController: UIViewController {
         rankingsLoadIndicator.startAnimating()
         
         rankingsTableView.isHidden = true
+        
+        
 
         Alamofire.request(rocketService.generatePersonalURL(platform: userPlatform, id: userID)).responseJSON { response in
-            guard
-                let newRankingsDictionary = JSON(response.result.value!)["data"]["rankings"].arrayObject as? [[String : AnyObject]]
-            else {
-                print("(RankViewController): rankingsDictionary was empty")
-                return
+            if JSON(response.result.value!)["success"] == "false" {
+                print("json was bad")
+            } else {
+                guard
+                    let newRankingsDictionary = JSON(response.result.value!)["data"]["rankings"].arrayObject as? [[String : AnyObject]]
+                else {
+                    print("(RankViewController): rankingsDictionary was empty")
+                    return
+                }
+                self.rankingsDictionary = newRankingsDictionary
+                self.rankingsTableView.reloadData()
+                self.rankingsLoadIndicator.isHidden = true
+                self.rankingsLoadIndicator.stopAnimating()
+                self.rankingsTableView.isHidden = false
             }
-            self.rankingsDictionary = newRankingsDictionary
-            self.rankingsTableView.reloadData()
-            self.rankingsLoadIndicator.isHidden = true
-            self.rankingsLoadIndicator.stopAnimating()
-            self.rankingsTableView.isHidden = false
         }
         
         
