@@ -5,7 +5,7 @@
 
 ### Priority One Features (Must-haves)
 - Users shall be able to check their in-game statistics:
-    - ~~Wins~~ (Not actually that interesting...)
+    - Wins
     - Goals and Goal/shot percentage
     - Assists
     - Saves
@@ -25,7 +25,7 @@
 
 ##### Progress Tracker
 - ☑ WrapAPI element created [here](https://wrapapi.com/api/serioussamix/rocketleague/statistics/0.0.1)
-- ☐ Clean up tabbed branch
+- ☐ Clean up tabbed branch (WIP)
 - ☑ Statistics completed (est. 1-2 hours)
     - ☑ Statistics vertical prototype created
     - ☑ Statistics horizontal prototype created
@@ -41,7 +41,7 @@
     - ☐ ~~"Settings" mocked up~~ (using Settings bundle)
 ---
 - ☐ Nice-to-haves (est. 4+ hours)
-    - ☐ Clubs viewable
+    - ☑ Clubs viewable (teams of 3 working)
     - ☐ Clubs stored on Firebase
     - ☐ Favorites viewable
     - ☐ Favorites stored on phone
