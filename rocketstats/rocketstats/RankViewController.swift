@@ -25,6 +25,7 @@ class RankViewController: UIViewController {
     let rocketService = RocketService()
     
     override func viewDidLoad() {
+        
         userID = rocketService.fetchSettingsID()
         userPlatform = rocketService.fetchSettingsPlatform()
         usernameLabel.text = userID

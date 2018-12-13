@@ -72,6 +72,7 @@ class LookupViewController: UIViewController, UITextFieldDelegate {
                     return
                 } else {
                     print("JSON: Retrieving JSON data succeeded.")
+                    self.userIDLabel.text = userID
                 }
                 //Get shots
                 if let statValue = dataFromJSON["data"]["performance"][5]["statistic"]["value"].string {
