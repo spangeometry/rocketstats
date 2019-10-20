@@ -2,7 +2,7 @@
 ## iOS statistics for Rocket League
 
 ##### an in-progress SFSU student project
-
+[Demonstration video on YouTube](https://www.youtube.com/watch?v=ki7aKNUU1eY)
 ### Priority One Features (Must-haves)
 - Users shall be able to check their in-game statistics:
     - Wins
